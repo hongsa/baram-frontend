@@ -1,0 +1,26 @@
+<div class="row container" style="margin-bottom: 0px;">
+  <br>
+  <div class="col s3 m2">
+    <a href="/">
+      <img src="images/logo.svg"  alt="" style="transform:translateY(-25%)">
+    </a>
+  </div>
+  <div class="header-box col m5 s5 offset-m4 offset-s4 right-align header-text"
+       ng-if="vm.user.isLoggedIn !== true"
+       ng-click="vm.userModal();">로그인
+  </div>
+  <div class="header-box col s9 m8 offset-m1">
+    <div class="col s4 m3 offset-m5 right-align">
+      <img ng-if="vm.user.isLoggedIn === true" src="images/user_info.png" alt="">
+    </div>
+    <div class="col s8 m4 header-text" ng-if="vm.user.isLoggedIn === true"
+         dropdown-select="vm.ddSelectOptions"
+         dropdown-model="vm.ddSelectSelected"
+         dropdown-item-label="text"
+         dropdown-onchange="vm.modalEvent(selected)"
+         style="border: 0px;background: none;box-shadow: none;">
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,68 @@
+<md-dialog aria-label="minsim" style="width: 70%;height: 90%;">
+  <md-dialog-content>
+    <md-tabs md-stretch-tabs md-dynamic-height>
+      <md-tab label="로그인">
+        <md-content style="padding: 20px;">
+          <form name="logInForm">
+            <input name="login_id" type="text" ng-model="vm.logInData.login_id" placeholder="아이디" required maxlength="12"
+                   minlength="4">
+            <div ng-messages="logInForm.login_id.$error" ng-show="logInForm.login_id.$dirty">
+              <div ng-message="required">아이디를 입력해주세요</div>
+              <div ng-message="maxlength">너무 길어요(최대 12자)</div>
+              <div ng-message="minlength">너무 짧아요(최소 4자)</div>
+            </div>
+            <input type="password" name="password" ng-model="vm.logInData.password" placeholder="비밀번호" required
+                   maxlength="12" minlength="4">
+            <div ng-messages="logInForm.password.$error" ng-show="logInForm.password.$dirty">
+              <div ng-message="required">비밀번호를 입력해주세요</div>
+              <div ng-message="maxlength">너무 길어요(최대 12자)</div>
+              <div ng-message="minlength">너무 짧아요(최소 4자)</div>
+            </div>
+            <div ng-if="vm.errorText.length != 0">
+              {{vm.errorText1}}
+            </div>
+            <div class="right-align">
+              <input ng-class="{'disabled' : logInForm.$invalid}" ng-click="vm.logIn(logInForm.$invalid)" type="submit"
+                     class="btn btn-active-go" value="로그인" style="color: white;"/>
+            </div>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="회원가입">
+        <md-content style="padding: 20px;">
+          <form name="signUpForm">
+            <input name="login_id" type="text" ng-model="vm.signUpData.login_id" required maxlength="12" minlength="4"
+                   placeholder="아이디">
+            <div ng-messages="signUpForm.login_id.$error" ng-show="signUpForm.login_id.$dirty">
+              <div ng-message="required">아이디를 입력해주세요</div>
+              <div ng-message="maxlength">너무 길어요(최대 12자)</div>
+              <div ng-message="minlength">너무 짧아요(최소 4자)</div>
+            </div>
+            <input type="password" name="password" ng-model="vm.signUpData.password" required maxlength="12"
+                   minlength="4" placeholder="비밀번호">
+            <div ng-messages="signUpForm.password.$error" ng-show="signUpForm.password.$dirty">
+              <div ng-message="required">비밀번호를 입력해주세요</div>
+              <div ng-message="maxlength">너무 길어요(최대 12자)</div>
+              <div ng-message="minlength">너무 짧아요(최소 4자)</div>
+            </div>
+            <input type="text" name="nickname" ng-model="vm.signUpData.nickname" required maxlength="10"
+                   minlength="2" placeholder="닉네임">
+            <div ng-messages="signUpForm.nickname.$error" ng-show="signUpForm.password.$dirty">
+              <div ng-message="required">닉네임을 입력해주세요</div>
+              <div ng-message="maxlength">너무 길어요(최대 10자)</div>
+              <div ng-message="minlength">너무 짧아요(최소 2자)</div>
+            </div>
+            <div ng-if="vm.errorText.length != 0">
+              {{vm.errorText2}}
+            </div>
+            <div class="right-align">
+              <!--<span class="pink-text" ng-disabled="signUpForm.$invalid" ng-click="vm.signUp()">회원가입</span>-->
+              <input ng-class="{'disabled' : signUpForm.$invalid}" ng-click="vm.signUp(signUpForm.$invalid)" type="submit"
+                     class="btn btn-active-go" value="회원가입" style="color: white;"/>
+            </div>
+          </form>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-dialog-content>
+</md-dialog>

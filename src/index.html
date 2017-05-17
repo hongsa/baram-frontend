@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Skeleton</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel='stylesheet' href='bower_components/materialize/dist/css/materialize.min.css'>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.min.css" />
+    <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link href='http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+    <style>
+      * { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+    </style>
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js(.) app/vendor-main.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src='bower_components/materialize/dist/js/materialize.min.js'></script>
+    <script src='bower_components/moment/min/moment.min.js'></script>
+    <script src="bower_components/moment/locale/de.js"></script>
+    <script src='bower_components/angular-moment/angular-moment.min.js'></script>
+    <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js(.) app/vendor-modules.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.0.7 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="skeleton">
+      <div ui-view></div>
+    </div>
+
+    <!-- build:js(.tmp) app/app.js -->
+    <script src="app/app.js"></script>
+    <!-- include: "type": "js", "files": ["app/**/*.js", "app/**/*.*.js"] -->
+    <!-- endbuild -->
+
+    <!-- build:remove -->
+    <script src="app/common/common.module.js"></script>
+    <script src="app/common/constants/app-config.constant.js"></script>
+    <script src="app/common/directives/header/header.js"></script>
+    <script src="app/common/interceptors/auth.interceptor.js"></script>
+    <script src="app/common/configs/main.config.js"></script>
+    <script src="app/common/configs/http-interceptors.config.js"></script>
+    <script src="app/common/configs/toast.config.js"></script>
+    <script src="app/common/runs/general.run.js"></script>
+    <script src="app/common/runs/router-permission.run.js"></script>
+    <script src="app/common/filters/percentage.filter.js"></script>
+    <script src="app/common/filters/title-case.filter.js"></script>
+    <script src="app/common/filters/date.filter.js"></script>
+
+    <script src="app/home/home.module.js"></script>
+    <script src="app/home/home.service.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.router.js"></script>
+
+    <script src="app/user/user.module.js"></script>
+    <script src="app/user/user.service.js"></script>
+    <script src="app/user/user.controller.js"></script>
+    <script src="app/user/user.factory.js"></script>
+
+    <!-- endbuild -->
+
+  </body>
+</html>
