@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row text-right">
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('all')">전체</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('knight')">전사</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('thief')">도적</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('archer')">궁사</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('god')">천인</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('magician')">주술사</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('priest')">도사</button>
+        <button class="btn btn-default" ng-click="vm.onClickJobFilter('black-magician')">마도사</button>
+      </div>
+      <hr>
+      <div class="panel panel-default">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+          <tr>
+            <th class="text-center">랭킹</th>
+            <th class="text-center">레벨</th>
+            <th class="text-center">아이디</th>
+            <th class="text-center">직업</th>
+            <th class="text-center">무기</th>
+            <th class="text-center">갑옷</th>
+            <th class="text-center">투구</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in vm.dataContainer" ng-click="vm.onClickDetailModal(item.gameName)">
+            <td class="text-center">{{item.ranking}}</td>
+            <td class="text-center">{{item.level}}({{item.grade}})</td>
+            <td class="text-center">{{item.gameName}}</td>
+            <td class="text-center">{{item.job}}</td>
+            <td class="text-right">{{item.weapon}}</td>
+            <td class="text-right">{{item.body}}</td>
+            <td class="text-right">{{item.head}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center">
+        <uib-pagination boundary-links="true" total-items="vm.totalItem" ng-model="vm.currentPage"
+                        ng-change="vm.pageChanged(vm.currentPage)" items-per-page="20" max-size="10" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+      </div>
+    </div>
+  </div>
+
+</div>

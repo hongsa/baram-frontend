@@ -26,15 +26,14 @@
         if (!$state) {
           $state = $injector.get('$state');
         }
-        $http.defaults.headers.common['X-DreamFactory-Session-Token'] = undefined;
-        $cookies.session_token = undefined;
+
         $rootScope.user = undefined;
         $rootScope.isLoggedIn = false;
         try {
           window.localStorage.user = undefined;
         } catch (e) {
         }
-        $state.go('signin');
+        $state.go('home');
       }
       return $q.reject(res);
     }

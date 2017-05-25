@@ -14,7 +14,6 @@
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         data: signUpData
       }).then(function (response) {
-        console.log(response)
         var tmp = {};
         tmp.id = response.data.id;
         tmp.gameName = response.data.game_name;
@@ -40,7 +39,6 @@
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         data: logInData
       }).then(function (response) {
-        console.log(response)
         var tmp = {};
         tmp.id = response.data.id;
         tmp.gameName = response.data.game_name;

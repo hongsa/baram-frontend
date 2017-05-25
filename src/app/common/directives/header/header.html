@@ -1,4 +1,60 @@
-<div class="row container" style="margin-bottom: 0px;">
-  header
-</div>
+<nav class="navbar navbar-default" role="navigation" style="background-color: #FFFFFF;border-color: #cccccc;">
+  <!-- 모바일 전환시 생기는 네비게이션 바 -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
+      <!-- 웹사이트 네비게이션 바 안의 로고 부분부터 -->
+      <a class="navbar-brand"  ui-sref="home" >
+        <span style="color: #6CD2DF; font-weight: bold; font-size: 21px;">팔도</span>
+      </a>
+    </div>
+
+    <!-- 네비게이션 링크 제목들 -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <!--검색 창 부분-->
+      <div class="navbar-form navbar-left" action="/" method="POST">
+        <div class="form-group">
+          <input type="text" name="search" class="form-control" placeholder="바람 아이디로 검색!" style="width: 20em; border: 1px solid; border-color: #2eb1c1;">
+        </div>
+        <!--디비 검색 버튼-->
+        <button name="submitbutton" value="first" type="submit" class="btn btn-default btn-xs" style="background-color:transparent;border-color:transparent;">
+          <span class="glyphicon glyphicon-search" style="color:#2eb1c1; font-size: 20px;"></span>
+        </button>
+
+      </div>
+      <!--검색 창 부분 끝-->
+
+      <ul class="nav navbar-nav navbar-right" style="color: #666666;">
+        <li>
+          <a ui-sref="main.gameStats"><span style="color: #666666;">문원정보</span></a>
+        </li>
+        <li>
+          <a ui-sref="main.gameStats"><span style="color: #666666;">게시판</span></a>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span style="color: #666666;">&nbsp;{{vm.gameName}}님</span>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" >
+            <li><a href="#"><span style="color: #666666;">내 정보</span></a></li>
+            <li><a href="#"><span style="color: #666666;">로그아웃</span></a></li>
+
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span style="color: #666666;">문의</span></a>
+        </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>

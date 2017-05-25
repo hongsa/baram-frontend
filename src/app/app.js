@@ -11,6 +11,10 @@
     // Common
     'baram.common',
     // Home
-    'baram.home'
+    'baram.home',
+    // Main Layout
+    'baram.main',
+    // Game Stats
+    'baram.gameStats'
   ]);
 }());

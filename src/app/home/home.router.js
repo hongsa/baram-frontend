@@ -3,7 +3,7 @@
   function HomeRouter($stateProvider) {
     $stateProvider.state('home', {
       templateUrl: 'app/home/home.html',
-      url: '/',
+      url: '/index',
       controller: 'HomeController',
       controllerAs: 'vm'
     });
