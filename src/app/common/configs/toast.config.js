@@ -16,5 +16,5 @@
   }
 
   ToastConfig.$inject = ['toastrConfig'];
-  angular.module('skeleton.common.config.ToastConfig', []).config(ToastConfig);
+  angular.module('baram.common.config.ToastConfig', []).config(ToastConfig);
 }());

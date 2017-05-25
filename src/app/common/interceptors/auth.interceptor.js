@@ -45,5 +45,5 @@
     '$injector',
     '$rootScope'
   ];
-  angular.module('skeleton.common.interceptor.AuthInterceptor', []).factory('AuthInterceptor', AuthInterceptor);
+  angular.module('baram.common.interceptor.AuthInterceptor', []).factory('AuthInterceptor', AuthInterceptor);
 }());

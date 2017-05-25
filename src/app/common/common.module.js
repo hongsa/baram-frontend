@@ -1,22 +1,22 @@
 (function () {
   'use strict';
-  angular.module('skeleton.common', [
+  angular.module('baram.common', [
     // Configs
-    'skeleton.common.config.MainConfig',
-    'skeleton.common.config.HTTPInterceptorsConfig',
-    'skeleton.common.config.ToastConfig',
+    'baram.common.config.MainConfig',
+    'baram.common.config.HTTPInterceptorsConfig',
+    'baram.common.config.ToastConfig',
     // Directives
-    'skeleton.common.directive.headerDirective',
+    'baram.common.directive.headerDirective',
     // Constants
-    'skeleton.common.constant.APP_CONFIG',
+    'baram.common.constant.APP_CONFIG',
     // Interceptors
-    'skeleton.common.interceptor.AuthInterceptor',
+    'baram.common.interceptor.AuthInterceptor',
     // Runs
-    'skeleton.common.run.FetchUserFromLocalStorageRun',
-    'skeleton.common.run.RouterPermissionRun',
+    'baram.common.run.FetchUserFromLocalStorageRun',
+    'baram.common.run.RouterPermissionRun',
     // Filters
-    'skeleton.common.filter.percentage',
-    'skeleton.common.filter.titleCase',
-    'skeleton.common.filter.dateString',
+    'baram.common.filter.percentage',
+    'baram.common.filter.titleCase',
+    'baram.common.filter.dateString',
   ]);
 }());

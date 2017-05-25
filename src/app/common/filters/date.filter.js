@@ -14,5 +14,5 @@
       return dateNames[new Date(input).getDay()];
     };
   }
-  angular.module('skeleton.common.filter.dateString', []).filter('dateString', dateFilter);
+  angular.module('baram.common.filter.dateString', []).filter('dateString', dateFilter);
 }());

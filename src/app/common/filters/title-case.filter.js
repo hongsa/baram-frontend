@@ -8,5 +8,5 @@
       });
     };
   }
-  angular.module('skeleton.common.filter.titleCase', []).filter('titleCase', titleCaseFilter);
+  angular.module('baram.common.filter.titleCase', []).filter('titleCase', titleCaseFilter);
 }());

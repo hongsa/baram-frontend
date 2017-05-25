@@ -7,5 +7,5 @@
     '$state',
     '$location'
   ];
-  angular.module('skeleton.common.run.RouterPermissionRun', []).run(RouterPermissionRun);
+  angular.module('baram.common.run.RouterPermissionRun', []).run(RouterPermissionRun);
 }());

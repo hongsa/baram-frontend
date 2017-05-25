@@ -9,5 +9,5 @@
     });
   }
   HomeRouter.$inject = ['$stateProvider'];
-  angular.module('skeleton.home.HomeRouter', []).config(HomeRouter);
+  angular.module('baram.home.HomeRouter', []).config(HomeRouter);
 }());

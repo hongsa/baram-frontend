@@ -4,5 +4,5 @@
     $httpProvider.interceptors.push('AuthInterceptor');
   }
   HTTPInterceptorsConfig.$inject = ['$httpProvider'];
-  angular.module('skeleton.common.config.HTTPInterceptorsConfig', []).config(HTTPInterceptorsConfig);
+  angular.module('baram.common.config.HTTPInterceptorsConfig', []).config(HTTPInterceptorsConfig);
 }());

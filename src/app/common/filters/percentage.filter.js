@@ -5,5 +5,5 @@
       return $filter('number')(input * 100, decimals) + '%';
     };
   }
-  angular.module('skeleton.common.filter.percentage', []).filter('percentage', percentageFilter);
+  angular.module('baram.common.filter.percentage', []).filter('percentage', percentageFilter);
 }());

@@ -14,5 +14,5 @@
     '$http',
     'APP_CONFIG'
   ];
-  angular.module('skeleton.common.run.FetchUserFromLocalStorageRun', []).run(FetchUserFromLocalStorageRun);
+  angular.module('baram.common.run.FetchUserFromLocalStorageRun', []).run(FetchUserFromLocalStorageRun);
 }());

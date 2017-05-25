@@ -1,19 +1,16 @@
 (function () {
   'use strict';
-  angular.module('skeleton', [
+  angular.module('baram', [
     'ngMessages',
     'ui.router',
+    'ui.bootstrap',
     'angular-loading-bar',
-    'ngAnimate',
-    'ngMaterial',
     'angularMoment',
     'angularSpinner',
     'toastr',
     // Common
-    'skeleton.common',
+    'baram.common',
     // Home
-    'skeleton.home',
-    // Login & Sign up
-    'skeleton.user',
+    'baram.home'
   ]);
 }());

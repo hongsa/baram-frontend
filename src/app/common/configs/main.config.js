@@ -4,5 +4,5 @@
     $urlRouterProvider.otherwise('/');
   }
   MainConfig.$inject = ['$urlRouterProvider'];
-  angular.module('skeleton.common.config.MainConfig', []).config(MainConfig);
+  angular.module('baram.common.config.MainConfig', []).config(MainConfig);
 }());

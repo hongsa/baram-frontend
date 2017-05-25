@@ -1,11 +1,11 @@
 (function () {
   'use strict';
-  angular.module('skeleton.home', [
+  angular.module('baram.home', [
     // Controllers
-    'skeleton.home.controller.HomeController',
+    'baram.home.controller.HomeController',
     // Services
-    'skeleton.home.service.Home',
+    'baram.home.service.Home',
     // Router
-    'skeleton.home.HomeRouter'
+    'baram.home.HomeRouter'
   ]);
 }());
