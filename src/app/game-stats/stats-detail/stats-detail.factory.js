@@ -14,7 +14,6 @@
         method: 'GET',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' }
       }).then(function (response) {
-        console.log(response)
         response.data.level_by_date.forEach(function (row) {
           rankingDataContainer.push([
               new Date(row.created).getTime() + (dayInMS/2),

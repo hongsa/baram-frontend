@@ -11,7 +11,6 @@
         method: 'GET',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       }).then(function (response) {
-        console.log(response)
         response.data.forEach(function (row) {
           dataContainer.push(row)
         });

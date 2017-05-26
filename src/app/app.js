@@ -16,6 +16,12 @@
     // Main Layout
     'baram.main',
     // Game Stats
-    'baram.gameStats'
+    'baram.gameStats',
+    // Board
+    'baram.board',
+    // Contact
+    'baram.contact',
+    // User Info
+    'baram.userInfo'
   ]);
 }());
