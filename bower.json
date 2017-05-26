@@ -15,7 +15,8 @@
     "angular-animate": "^1.6.4",
     "angular-touch": "^1.6.4",
     "bootstrap": "3.x",
-    "angular-messages": "^1.6.4"
+    "angular-messages": "^1.6.4",
+    "highcharts-ng": "^1.1.0"
   },
   "devDependencies": {},
   "appPath": "src"

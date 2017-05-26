@@ -1,19 +1,51 @@
 <div class="modal-header">
-  <button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span></button>
-  <h3 class="modal-title">Active Class Detail Link</h3>
-  <div class="row">
-    <div class="col-sm-4">
-    </div>
-    <div class="col-sm-8" >
-
-    </div>
-  </div>
+  <button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span>
+  </button>
+  <h3 class="modal-title text-center card-item-title">{{vm.gameName}}</h3>
 </div>
 
 
 <div class="modal-body">
-  <div class="panel panel-default table-responsive">
+  <div class="panel panel-default">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <highchart config="vm.levelLineChartConfig"></highchart>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <highchart config="vm.rankingLineChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
 
+  <div class="panel panel-default">
+    <div class="row">
+      <div class="col-md-3 col-xs-5">
+        <div class="card-item-box thumbnail">
+          <img src={{vm.profileImage}} alt="">
+          <div class="caption">
+            <div class="card-item-info text-center">
+              <div class="card-item-title">{{vm.detailStats.game_name}}</div>
+              <div class="card-item-job">{{vm.detailStats.job}}&nbsp;({{vm.detailStats.grade}}차)
+              </div>
+              <div class="card-item-level">LV {{vm.detailStats.level}}&nbsp;({{vm.detailStats.ranking}}위)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 col-xs-7">
+        <div class="card-item-info text-left">
+          <div class="card-item-weapon">무기 : {{vm.detailStats.weapon}}</div>
+          <div class="card-item-weapon">갑옷 : {{vm.detailStats.body}}</div>
+          <div class="card-item-weapon">투구 : {{vm.detailStats.head}}</div>
+          <div class="card-item-weapon">방패 : {{vm.detailStats.shield}}</div>
+          <div class="card-item-weapon">오른손 : {{vm.detailStats.right_hand}}</div>
+          <div class="card-item-weapon">왼손 : {{vm.detailStats.left_hand}}</div>
+          <div class="card-item-weapon">악세사리 : {{vm.detailStats.option1}}</div>
+          <div class="card-item-weapon">악세사리 : {{vm.detailStats.option2}}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -18,5 +18,8 @@
     'baram.common.filter.percentage',
     'baram.common.filter.titleCase',
     'baram.common.filter.dateString',
+    'baram.common.filter.jobFilter',
+    // Utils
+    'baram.common.utils.LinechartUtils'
   ]);
 }());

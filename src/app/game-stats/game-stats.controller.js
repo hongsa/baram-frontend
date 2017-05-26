@@ -4,7 +4,7 @@
     var vm = this;
     vm.currentPage = 1;
     vm.totalItem = 0;
-    vm.paginationSize = 20;
+    vm.paginationSize = 24;
     vm.jobFilter = 'all';
     vm.gameStatsData = [];
     vm.dataContainer = [];
@@ -12,6 +12,7 @@
     vm.onClickJobFilter = onClickJobFilter;
     vm.pageChanged = pageChanged;
     vm.onClickDetailModal = onClickDetailModal;
+    vm.isJobFilterActive = isJobFilterActive;
 
     init();
     function init() {
@@ -58,6 +59,12 @@
     function onClickJobFilter(job) {
       vm.jobFilter = job;
       getGameStats();
+    }
+
+    function isJobFilterActive(jobFilter) {
+      if (vm.jobFilter === jobFilter){
+        return { 'color':'#fe4b60' };
+      }
     }
 
   }

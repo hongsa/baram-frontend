@@ -8,6 +8,7 @@
     'angularMoment',
     'angularSpinner',
     'toastr',
+    'highcharts-ng',
     // Common
     'baram.common',
     // Home

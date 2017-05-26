@@ -1,0 +1,61 @@
+.card-item-box {
+    border-top: 2px solid #e1e1e1;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.card-item-info {
+    /*padding: 9px 12px;*/
+}
+.card-item-title {
+    font-weight : 600;
+    letter-spacing : -0.8px;
+    font-size: 1.6rem;
+}
+.card-item-weapon {
+    font-weight : 600;
+    font-size: 1.4rem;
+}
+.card-item-type {
+    line-height: 40px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    color: #fe4b60;
+    margin-right: 10px;
+}
+.card-item-job {
+    font-weight: 400;
+    color: #333;
+    font-size: 1.4rem;
+}
+.card-item-level {
+    font-weight: 400;
+    color: #b0b0b0;
+    font-size: 1.2rem;
+}
+.thumbnail {
+    padding: 0;
+    border: none;
+    position:relative;
+}
+
+.job-ranking {
+    top:0;
+    left:0;
+    position: absolute;
+    font-weight: 400;
+    font-size: 1.1rem;
+    background-color: #fe4b60;
+    border-radius: 4px;
+    color: white;
+    padding:4px;
+}
+
+
+.job-filter {
+    font-weight: 400;
+    color: #b0b0b0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding:5px;
+}
