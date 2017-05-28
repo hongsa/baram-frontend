@@ -1,3 +1,76 @@
-<div>
-  게시판
+<div class="row">
+  <div class="col-md-3 col-sm-2 col-xs-1"></div>
+  <div class="col-md-6 col-sm-8 col-xs-10">
+    <div class="row" style="margin-bottom: 10px;">
+      <div class="col-sm-12">
+        <textarea class="form-control" rows="4" name="content"
+                  ng-model="vm.postData.content"></textarea>
+      </div>
+      <div class="col-sm-12 text-right">
+        <div class="checkbox" ng-if="vm.userLevel == 1">
+          <label>
+            <input type="checkbox" ng-model="vm.postData.level">공지로 등록
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.onClickPostBoard()">
+          <span class="glyphicon glyphicon-pencil"></span>&nbsp;글쓰기
+        </button>
+      </div>
+    </div>
+    <div infinite-scroll="vm.getBoardList()" infinite-scroll-disabled="vm.busy" infinite-scroll-distance="3">
+    <div ng-repeat="item in vm.noticeDataContainer" style="margin-bottom: 10px;">
+      <div class="row board-box">
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col-xs-3 col-sm-2 col-md-1">
+            <img style="width: 40px; height: 56px;"
+                 src="http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID={{item.game_name}}@연"
+                 alt="">
+          </div>
+          <div class="col-xs-9 col-sm-10 col-md-11">
+            <div class="board-game-name">{{item.game_name}}</div>
+            <div class="board-time">{{item.created}}</div>
+          </div>
+        </div>
+
+        <div class="col-xs-12" style="padding: 0; margin-bottom: 15px;">
+          <div class="board-content" ng-style="item.more === false && {'max-height':'30em'}">{{item.content}}</div>
+          <div class="board-more-text" ng-if="item.more" ng-click="vm.onClickTextExpand(item)">더 보기</div>
+          <div class="board-reply-count text-right" ng-if="item.reply_count > 0" ng-click="vm.onClickGetReplyList(item, 'first')">댓글 {{item.reply_count}} 개</div>
+        </div>
+      </div>
+
+        <div class="row reply-box">
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-2 col-sm-1 col-md-1">
+              <img style="width: 30px; height: 43px;"
+                   src="http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID={{vm.gameName}}@연"
+                   alt="">
+            </div>
+            <div class="col-xs-10 col-sm-11 col-md-11">
+              <input type="text" class="col-xs-9 col-sm-10 col-md-10 form-control reply-write-input" placeholder="댓글을 입력하세요" ng-model="item.replyData.content">
+              <div class="col-xs-3 col-sm-2 col-md-2 reply-write text-center" ng-click="vm.onClickPostReply(item)">게시</div>
+            </div>
+          </div>
+          <div class="row" ng-repeat="reply in item.replyContainer" style="margin-bottom: 10px;">
+            <div class="col-xs-2 col-sm-1 col-md-1">
+              <img style="width: 30px; height: 43px;"
+                   src="http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID={{reply.game_name}}@연"
+                   alt="">
+            </div>
+            <div class="col-xs-10 col-sm-11 col-md-11" style="padding: 10px;">
+              <div>
+                <span class="reply-game-name" >{{reply.game_name}}</span>
+                <span class="reply-content">{{reply.content}}</span>
+              </div>
+              <div class="board-time">{{reply.created}}</div>
+            </div>
+          </div>
+          <div class="board-more-text" ng-if="(item.reply_count - item.replyRequest) > 0 && item.replyRequest > 0" ng-click="vm.onClickGetReplyList(item, 'more')">댓글 더 보기</div>
+        </div>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="col-md-3 col-sm-2 col-xs-1"></div>
 </div>

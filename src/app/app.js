@@ -9,6 +9,7 @@
     'angularSpinner',
     'toastr',
     'highcharts-ng',
+    'infinite-scroll',
     // Common
     'baram.common',
     // Home

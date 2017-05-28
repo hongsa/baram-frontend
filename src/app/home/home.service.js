@@ -15,8 +15,9 @@
         data: signUpData
       }).then(function (response) {
         var tmp = {};
-        tmp.id = response.data.id;
+        tmp.userId = response.data.user_id;
         tmp.gameName = response.data.game_name;
+        tmp.level = response.data.level;
         tmp.token = response.data.token;
         window.localStorage.user = JSON.stringify(tmp);
         deferred.resolve({
@@ -40,8 +41,9 @@
         data: logInData
       }).then(function (response) {
         var tmp = {};
-        tmp.id = response.data.id;
+        tmp.userId = response.data.user_id;
         tmp.gameName = response.data.game_name;
+        tmp.level = response.data.level;
         tmp.token = response.data.token;
         window.localStorage.user = JSON.stringify(tmp);
         deferred.resolve({

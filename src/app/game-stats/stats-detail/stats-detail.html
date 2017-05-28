@@ -6,19 +6,19 @@
 
 
 <div class="modal-body">
-  <div class="panel panel-default">
+  <div>
     <div class="row">
-      <div class="col-md-6 col-xs-12">
+      <div class="col-md-6 col-xs-6">
         <highchart config="vm.levelLineChartConfig"></highchart>
       </div>
-      <div class="col-md-6 col-xs-12">
+      <div class="col-md-6 col-xs-6">
         <highchart config="vm.rankingLineChartConfig"></highchart>
       </div>
     </div>
   </div>
 
-  <div class="panel panel-default">
-    <div class="row">
+  <div>
+    <div class="row" style="margin: 10px;">
       <div class="col-md-3 col-xs-5">
         <div class="card-item-box thumbnail">
           <img src={{vm.profileImage}} alt="">
@@ -50,5 +50,5 @@
 </div>
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
+  <button type="button" class="btn btn-primary" ng-click="$dismiss()">닫기</button>
 </div>

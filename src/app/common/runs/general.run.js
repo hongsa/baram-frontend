@@ -5,11 +5,11 @@
       $rootScope.user = JSON.parse(window.localStorage.user);
       if ($rootScope.user) {
         $rootScope.isLoggedIn = true;
-        console.log('main')
-        $location.path("/main/game-stats");
+        // console.log('main')
+        // $location.path("/main/game-stats");
       } else {
-        console.log('login')
-        $location.path("/index");
+        // console.log('login')
+        // $location.path("/index");
       }
     } catch (e) {
     }

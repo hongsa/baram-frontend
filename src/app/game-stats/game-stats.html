@@ -17,7 +17,7 @@
           <img class="img-responsive" src="http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID={{item.gameName}}@연" alt="">
           <div class="job-ranking text-center">
             <!--{{vm.jobFilter | jobFilter}}<br>-->
-            {{idx + 1}}위
+            {{(vm.paginationSize * (vm.currentPage-1)) + idx + 1}}위
           </div>
           <div class="caption">
             <div class="card-item-info text-center">
