@@ -1,45 +1,75 @@
-<nav class="navbar navbar-default" role="navigation">
-  <!-- 모바일 전환시 생기는 네비게이션 바 -->
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<div>
+<div class="navi-web" ng-show="vm.naviType === 'web'">
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- 모바일 전환시 생기는 네비게이션 바 -->
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-      <!-- 웹사이트 네비게이션 바 안의 로고 부분부터 -->
-      <a class="navbar-brand" ui-sref="home">
-        <span style="color: #fe4b60; font-weight: bold; font-size: 21px;">팔도</span>
-      </a>
+        <!-- 웹사이트 네비게이션 바 안의 로고 부분부터 -->
+        <a class="navbar-brand" ui-sref="home">
+          <span style="color: #fe4b60; font-weight: bold; font-size: 21px;">팔도</span>
+        </a>
+      </div>
+
+      <!-- 네비게이션 링크 제목들 -->
+      <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-left" style="color: #666666;">
+          <li>
+            <a ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
+              <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></a>
+          </li>
+          <li>
+            <a ui-sref="main.board" ng-click="vm.onClickNavigation('main.board')">
+              <span ng-style="vm.isNavigationActive('main.board')">게시판</span></a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="color: #666666;">
+          <li>
+            <a ui-sref="main.userInfo" ng-click="vm.onClickNavigation('main.userInfo')">
+            <span
+                ng-style="vm.isNavigationActive('main.userInfo')">{{vm.gameName}}&nbsp;님</span></a>
+          </li>
+          <li>
+            <a ui-sref="main.contact" ng-click="vm.onClickNavigation('main.contact')">
+              <span ng-style="vm.isNavigationActive('main.contact')">문의</span></a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
     </div>
+  </nav>
+</div>
 
-    <!-- 네비게이션 링크 제목들 -->
-    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+<div class="navi-mobile" ng-show="vm.naviType === 'mobile'">
+  <div class="col-md-12 main-menu-box">
+    <div class="navbar navbar-default row"
+         style="position: fixed; bottom:-20px; width:100%; z-index: 99999;padding: 20px; ">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
+          <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div ui-sref="main.board" ng-click="vm.onClickNavigation('main.board')">
+          <span ng-style="vm.isNavigationActive('main.board')">게시판</span></div>
+      </div>
 
-      <ul class="nav navbar-nav navbar-left" style="color: #666666;">
-        <li>
-          <a ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
-            <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></a>
-        </li>
-        <li>
-          <a ui-sref="main.board" ng-click="vm.onClickNavigation('main.board')">
-            <span ng-style="vm.isNavigationActive('main.board')">게시판</span></a>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right" style="color: #666666;">
-        <li>
-          <a ui-sref="main.userInfo" ng-click="vm.onClickNavigation('main.userInfo')">
-            <span ng-style="vm.isNavigationActive('main.userInfo')">{{vm.gameName}}&nbsp;님</span></a>
-        </li>
-        <li>
-          <a ui-sref="main.contact" ng-click="vm.onClickNavigation('main.contact')">
-            <span ng-style="vm.isNavigationActive('main.contact')" >문의</span></a>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div ui-sref="main.userInfo" ng-click="vm.onClickNavigation('main.userInfo')">
+          <span ng-style="vm.isNavigationActive('main.userInfo')">{{vm.gameName}}</span></div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div ui-sref="main.contact" ng-click="vm.onClickNavigation('main.contact')">
+          <span ng-style="vm.isNavigationActive('main.contact')">문의</span></div>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
+</div>

@@ -1,11 +1,32 @@
 (function () {
   'use strict';
-  function Controller($rootScope, $state) {
+  function Controller($rootScope, $state, $window, $scope) {
     var vm = this;
 
     vm.navFilter = $state.current.name;
     vm.onClickNavigation = onClickNavigation;
     vm.isNavigationActive = isNavigationActive;
+    vm.naviType = '';
+
+    init();
+    function init() {
+      if ($window.innerWidth >= 1000) {
+        vm.naviType = 'web';
+      } else {
+        vm.naviType = 'mobile';
+      }
+    }
+
+    angular.element($window).on('resize', function () {
+      if ($window.innerWidth >= 1000) {
+          vm.naviType = 'web';
+        $scope.$digest()
+      } else {
+        vm.naviType = 'mobile';
+        $scope.$digest()
+      }
+
+    });
 
     if ($rootScope.user) {
       vm.gameName = $rootScope.user.gameName;
@@ -24,7 +45,9 @@
 
   Controller.$inject = [
     '$rootScope',
-    '$state'
+    '$state',
+    '$window',
+    '$scope'
   ];
   function headerDirective() {
     return {

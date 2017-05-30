@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  function GameStatsController(GameStats, StatsDetail, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state) {
+  function GameStatsController(GameStats, StatsDetail, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state, $window) {
     var vm = this;
     vm.currentPage = 1;
     vm.totalItem = 0;
@@ -50,6 +50,7 @@
     }
 
     function pageChanged(currentPage) {
+      $window.scrollTo(0, 0);
       vm.currentPage = currentPage;
       vm.dataContainer.splice(0);
       var start = (vm.currentPage - 1) * vm.paginationSize;
@@ -95,7 +96,8 @@
     'jwtHelper',
     '$rootScope',
     'APP_CONFIG',
-    '$state'
+    '$state',
+    '$window'
   ];
   angular.module('baram.gameStats.controller.GameStatsController', []).controller('GameStatsController', GameStatsController);
 }());
