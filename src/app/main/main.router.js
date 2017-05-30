@@ -3,7 +3,8 @@
   function MainRouter($stateProvider) {
     $stateProvider.state('main', {
       templateUrl: 'app/main/main.html',
-      url: '/main'
+      url: '/main',
+      authenticate: true
     });
   }
   MainRouter.$inject = ['$stateProvider'];

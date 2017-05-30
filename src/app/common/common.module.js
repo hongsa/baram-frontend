@@ -19,6 +19,7 @@
     'baram.common.filter.titleCase',
     'baram.common.filter.dateString',
     'baram.common.filter.jobFilter',
+    'baram.common.filter.timeDiffFilter',
     // Utils
     'baram.common.utils.LinechartUtils'
   ]);

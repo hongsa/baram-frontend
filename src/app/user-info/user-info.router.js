@@ -5,7 +5,8 @@
       templateUrl: 'app/user-info/user-info.html',
       url: '/user-info',
       controller: 'UserInfoController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      authenticate: true
     });
   }
   UserInfoRouter.$inject = ['$stateProvider'];

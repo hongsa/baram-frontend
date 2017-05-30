@@ -2,7 +2,10 @@
   'use strict';
   function Controller($rootScope) {
     var vm = this;
-    vm.gameName = $rootScope.user.gameName;
+
+    if ($rootScope.user) {
+      vm.gameName = $rootScope.user.gameName;
+    }
   }
 
   Controller.$inject = [

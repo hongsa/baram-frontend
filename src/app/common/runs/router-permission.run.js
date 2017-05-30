@@ -1,19 +1,24 @@
 (function () {
   'use strict';
-  function RouterPermissionRun($rootScope, $state, $location) {
-    console.log($rootScope)
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-      console.log('permission')
-      if( toState.authenticate && !$rootScope.isLoggedIn) {
-        $state.transitionTo('home');
-        event.preventDefault();
+  function RouterPermissionRun($rootScope, $transitions) {
+
+    $transitions.onBefore({ to: 'home'}, function(trans) {
+      if ($rootScope.isLoggedIn) {
+        console.log('already logged in');
+        return trans.router.stateService.target('main.gameStats');
+      }
+    });
+
+    $transitions.onBefore({ to: 'main.**'}, function(trans) {
+      if (!$rootScope.isLoggedIn) {
+        console.log('login required');
+        return trans.router.stateService.target('home');
       }
     });
   }
   RouterPermissionRun.$inject = [
     '$rootScope',
-    '$state',
-    '$location'
+    '$transitions'
   ];
   angular.module('baram.common.run.RouterPermissionRun', []).run(RouterPermissionRun);
 }());

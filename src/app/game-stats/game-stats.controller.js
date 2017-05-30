@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  function GameStatsController(GameStats, StatsDetail) {
+  function GameStatsController(GameStats, StatsDetail, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state) {
     var vm = this;
     vm.currentPage = 1;
     vm.totalItem = 0;
@@ -16,7 +16,26 @@
 
     init();
     function init() {
-      getGameStats();
+      var expireDate = jwtHelper.getTokenExpirationDate($rootScope.user.token).getTime();
+      var now = new Date().getTime();
+      if (expireDate - now <= APP_CONFIG.DAY_MS) {
+        updateToken();
+      } else {
+        getGameStats();
+      }
+    }
+
+    function updateToken() {
+      UserInfo.updateToken($rootScope.user.userId).then(function (response) {
+        $rootScope.isLoggedIn = true;
+        $rootScope.user = JSON.parse(window.localStorage.user);
+        console.log('update token success');
+        if ($rootScope.user.level !== -1) {
+          getGameStats();
+        } else {
+          $state.go('main.wait')
+        }
+      })
     }
 
     function getGameStats() {
@@ -71,7 +90,12 @@
 
   GameStatsController.$inject = [
     'GameStats',
-    'StatsDetail'
+    'StatsDetail',
+    'UserInfo',
+    'jwtHelper',
+    '$rootScope',
+    'APP_CONFIG',
+    '$state'
   ];
   angular.module('baram.gameStats.controller.GameStatsController', []).controller('GameStatsController', GameStatsController);
 }());

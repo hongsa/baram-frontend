@@ -49,11 +49,11 @@
 
     init();
     function init () {
+      console.log('game init');
       getStatsDetail()
     }
     function getStatsDetail() {
       StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.gameName).then(function (response) {
-        console.log(vm.detailStats)
       })
 
     }

@@ -4,12 +4,14 @@
     'ngMessages',
     'ui.router',
     'ui.bootstrap',
+    'ngAnimate',
     'angular-loading-bar',
     'angularMoment',
     'angularSpinner',
     'toastr',
     'highcharts-ng',
     'infinite-scroll',
+    'angular-jwt',
     // Common
     'baram.common',
     // Home
@@ -23,6 +25,8 @@
     // Contact
     'baram.contact',
     // User Info
-    'baram.userInfo'
+    'baram.userInfo',
+    // Wait
+    'baram.wait'
   ]);
 }());

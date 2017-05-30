@@ -3,9 +3,10 @@
   function HomeRouter($stateProvider) {
     $stateProvider.state('home', {
       templateUrl: 'app/home/home.html',
-      url: '/index',
+      url: '/',
       controller: 'HomeController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      authenticate: true
     });
   }
   HomeRouter.$inject = ['$stateProvider'];

@@ -5,7 +5,8 @@
       templateUrl: 'app/game-stats/game-stats.html',
       url: '/game-stats',
       controller: 'GameStatsController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      authenticate: true
     });
   }
   GameStatsRouter.$inject = ['$stateProvider'];

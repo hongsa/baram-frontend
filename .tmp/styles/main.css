@@ -1,3 +1,7 @@
+.navigation-active {
+    color: #fe4b60;
+}
+
 .card-item-box {
     border-top: 2px solid #e1e1e1;
     padding-top: 5px;
@@ -59,6 +63,13 @@
     padding:5px;
 }
 
+.board-sub-menu {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+}
+
 .board-box {
     padding: 13px;
     margin-left: 10px;
@@ -75,6 +86,11 @@
 .board-time {
     font-weight: 400;
     color: #b0b0b0;
+    font-size: 1.2rem;
+}
+.board-notice{
+    font-weight: 400;
+    color: #fe4b60;
     font-size: 1.2rem;
 }
 .board-content {
@@ -125,19 +141,29 @@
 
 @media (min-width: 700px) {
     .reply-write-input {
-        width: 80%;
+        width: 90%;
     }
+    .reply-write {
+        color: #b0b0b0;
+        font-size: 1.2rem;
+        padding:10px;
+        width: 10%;
+        cursor: pointer;
+    }
+
 }
 @media (max-width: 700px) {
     .reply-write-input {
-        width: 70%;
+        width: 80%;
     }
+    .reply-write {
+        color: #b0b0b0;
+        font-size: 1.2rem;
+        padding:10px;
+        width: 20%;
+        cursor: pointer;
+    }
+
 }
 
-.reply-write {
-    color: #b0b0b0;
-    font-size: 1.2rem;
-    padding:10px;
-    width: 10%;
-    cursor: pointer;
-}
+

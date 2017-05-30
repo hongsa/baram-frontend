@@ -1,17 +1,17 @@
 (function () {
   'use strict';
-  function BoardController(Board, $rootScope) {
+  function BoardController(Board, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state) {
     var vm = this;
     vm.page = 1;
     vm.busy = false;
+    vm.boardDataContainer = [];
+    vm.boardFilter = 'normal';
     vm.gameName = $rootScope.user.gameName;
-    vm.normalDataContainer = [];
-    vm.noticeDataContainer = [];
     vm.userLevel = $rootScope.user.level;
     vm.postData = {
       'userId': $rootScope.user.userId,
       'content': '',
-      'level': false
+      'boardType': ''
     };
 
     vm.getBoardList = getBoardList;
@@ -19,34 +19,55 @@
     vm.onClickTextExpand = onClickTextExpand;
     vm.onClickGetReplyList = onClickGetReplyList;
     vm.onClickPostReply = onClickPostReply;
+    vm.onClickBoardFilter = onClickBoardFilter;
+    vm.isBoardFilterActive = isBoardFilterActive;
 
     init();
     function init() {
       vm.page = 1;
-      getBoardList();
+      var expireDate = jwtHelper.getTokenExpirationDate($rootScope.user.token).getTime();
+      var now = new Date().getTime();
+      if (expireDate - now <= APP_CONFIG.DAY_MS) {
+        updateToken();
+      } else {
+        getBoardList();
+      }
+    }
+
+    function updateToken() {
+      UserInfo.updateToken($rootScope.user.userId).then(function (response) {
+        $rootScope.isLoggedIn = true;
+        $rootScope.user = JSON.parse(window.localStorage.user);
+        console.log('update token success');
+        if ($rootScope.user.level !== -1) {
+          getBoardList();
+        } else {
+          $state.go('main.wait')
+        }
+      })
     }
 
     function getBoardList() {
       vm.busy = true;
-      Board.getBoardList(vm.noticeDataContainer, vm.normalDataContainer, vm.page).then(function (response) {
-        vm.busy = false;
+      Board.getBoardList(vm.boardDataContainer, vm.page, vm.boardFilter).then(function (response) {
+        vm.busy = response.last;
         vm.page +=1;
-        console.log(vm.page);
       })
     }
 
-    function onClickPostBoard() {
+    function onClickPostBoard(boardType) {
+      vm.postData.boardType = boardType;
       Board.postBoard(vm.postData).then(function (response) {
         vm.postData.content = '';
-        vm.normalDataContainer = [];
-        vm.noticeDataContainer = [];
+        vm.postData.boardType = false;
+        vm.boardDataContainer = [];
         vm.page = 1;
         getBoardList();
       })
     }
 
-    function onClickGetReplyList(item, type) {
-      if (type === 'first') {
+    function onClickGetReplyList(item, event) {
+      if (event === 'first') {
         item['replyContainer'] = [];
         item['page'] = 1;
         item['replyRequest'] = 0
@@ -62,12 +83,8 @@
       item['replyData']['userId'] = $rootScope.user.userId;
       Board.postReply(item.replyData, item.id).then(function (response) {
         item.replyData.content = '';
-        // item.replyContainer.push({
-        //   'content': item.replyData.content,
-        //   'gameName': $rootScope.user.gameName,
-        //   'created': new Date()
-        // })
         onClickGetReplyList(item, 'first');
+        item.reply_count += 1;
       })
     }
 
@@ -75,11 +92,28 @@
       item.more = false;
     }
 
+    function onClickBoardFilter(board) {
+      vm.boardFilter = board;
+      vm.boardDataContainer.splice(0);
+      vm.page = 1;
+      getBoardList();
+    }
+
+    function isBoardFilterActive(boardFilter) {
+      if (vm.boardFilter === boardFilter){
+        return { 'color':'#fe4b60' };
+      }
+    }
+
   }
 
   BoardController.$inject = [
     'Board',
-    '$rootScope'
+    'UserInfo',
+    'jwtHelper',
+    '$rootScope',
+    'APP_CONFIG',
+    '$state'
   ];
   angular.module('baram.board.controller.BoardController', []).controller('BoardController', BoardController);
 }());

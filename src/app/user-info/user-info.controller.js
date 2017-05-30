@@ -2,9 +2,6 @@
   'use strict';
   function UserInfoController(UserInfo, StatsDetailFactory, $rootScope, APP_CONFIG, LinechartUtils) {
     var vm = this;
-    vm.gameName = $rootScope.user.gameName;
-    vm.profileImage = "http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID=" + vm.gameName + "@연";
-
     vm.currentPage = 1;
     vm.pageSize = 10;
     vm.totalItem = 0;
@@ -50,11 +47,14 @@
 
     init();
     function init () {
+      if ($rootScope.user) {
+        vm.gameName = $rootScope.user.gameName;
+        vm.profileImage = "http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID=" + vm.gameName + "@연";
+      }
       getStatsDetail()
     }
     function getStatsDetail() {
       StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.gameName).then(function (response) {
-        console.log(vm.detailStats)
       })
     }
 

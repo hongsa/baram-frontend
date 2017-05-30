@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  function Board($http, $q, $rootScope, APP_CONFIG, $state) {
+  function Board($http, $q, $rootScope, APP_CONFIG, $state, $filter) {
     return {
       getBoardList: getBoardList,
       postBoard: postBoard,
@@ -8,29 +8,29 @@
       postReply: postReply
     };
 
-    function getBoardList(noticeDataContainer, normalDataContainer, page) {
+    function getBoardList(boardDataContainer, page, boardFilter) {
       var deferred = $q.defer();
+      var last = false;
       $http({
-        url: APP_CONFIG.BACKEND_ADDRESS + 'boards?page=' + page,
+        url: APP_CONFIG.BACKEND_ADDRESS + 'boards/' + boardFilter + '/' + page,
         method: 'GET',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       }).then(function (response) {
-        response.data.notice.forEach(function (row) {
+        if (response.data.board.length === 0) {
+          last = true;
+        }
+        response.data.board.forEach(function (row) {
           row['replyData'] = {
             'content': ''
           };
-          noticeDataContainer.push(row)
-        });
-
-        response.data.normal.forEach(function (row) {
-          row['replyData'] = {
-            'content': ''
-          };
-          normalDataContainer.push(row)
+          var timeDiff = moment(row.created, "YYYY.MM.DD.HH.mm").fromNow();
+          row['timeDiff'] = $filter('timeDiffFilter')(timeDiff);
+          boardDataContainer.push(row)
         });
 
         deferred.resolve({
-          code: response.status
+          code: response.status,
+          last: last
         });
       }, function (err) {
         deferred.resolve({
@@ -63,12 +63,14 @@
     function getReplyList(dataContainer, boardId, page) {
       var deferred = $q.defer();
       $http({
-        url: APP_CONFIG.BACKEND_ADDRESS + 'boards/' + boardId + '?page=' + page,
+        url: APP_CONFIG.BACKEND_ADDRESS + 'replies/' + boardId + '/' + page,
         method: 'GET',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
       }).then(function (response) {
         console.log(response)
         response.data.reply.forEach(function (row) {
+          var timeDiff = moment(row.created, "YYYY.MM.DD.HH.mm").fromNow();
+          row['timeDiff'] = $filter('timeDiffFilter')(timeDiff);
           dataContainer.push(row)
         });
 
@@ -86,7 +88,7 @@
     function postReply(replyData, boardId) {
       var deferred = $q.defer();
       $http({
-        url: APP_CONFIG.BACKEND_ADDRESS + 'boards/' + boardId,
+        url: APP_CONFIG.BACKEND_ADDRESS + 'replies/' + boardId,
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         data: replyData
@@ -109,7 +111,8 @@
     '$q',
     '$rootScope',
     'APP_CONFIG',
-    '$state'
+    '$state',
+    '$filter'
   ];
   angular.module('baram.board.service.Board', []).factory('Board', Board);
 }());

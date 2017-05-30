@@ -5,7 +5,8 @@
       templateUrl: 'app/board/board.html',
       url: '/board',
       controller: 'BoardController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      authenticate: true
     });
   }
   BoardRouter.$inject = ['$stateProvider'];
