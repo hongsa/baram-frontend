@@ -441,7 +441,7 @@ module.exports = function (grunt) {
     },
 
     ngtemplates : {
-      'minsim' : {
+      'baram' : {
         cwd : '.tmp',
         src : 'app/**/*.html',
         dest : '.tmp/app/templates.js',

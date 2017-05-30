@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row text-center">
+        <span class="job-filter" ng-style="vm.isJobFilterActive('all')" ng-click="vm.onClickJobFilter('all')">전체</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('knight')" ng-click="vm.onClickJobFilter('knight')">전사</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('thief')" ng-click="vm.onClickJobFilter('thief')">도적</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('archer')" ng-click="vm.onClickJobFilter('archer')">궁사</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('god')" ng-click="vm.onClickJobFilter('god')">천인</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('magician')" ng-click="vm.onClickJobFilter('magician')">주술사</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('priest')" ng-click="vm.onClickJobFilter('priest')">도사</span>
+        <span class="job-filter" ng-style="vm.isJobFilterActive('black-magician')" ng-click="vm.onClickJobFilter('black-magician')">마도사</span>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3 col-xs-4 card-item-box thumbnail" ng-repeat="(idx, item) in vm.dataContainer" ng-click="vm.onClickDetailModal(item.gameName)">
+          <img class="img-responsive" src="http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID={{item.gameName}}@연" alt="">
+          <div class="job-ranking text-center">
+            <!--{{vm.jobFilter | jobFilter}}<br>-->
+            {{(vm.paginationSize * (vm.currentPage-1)) + idx + 1}}위
+          </div>
+          <div class="caption">
+            <div class="card-item-info text-center">
+              <div class="card-item-title">{{item.gameName}}</div>
+              <div class="card-item-weapon">{{item.weapon}}</div>
+              <div class="card-item-job">{{item.job}}&nbsp;({{item.grade}}차)</div>
+              <div class="card-item-level">LV {{item.level}}&nbsp;({{item.ranking}}위)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center">
+        <uib-pagination boundary-links="true" total-items="vm.totalItem" ng-model="vm.currentPage"
+                        ng-change="vm.pageChanged(vm.currentPage)" items-per-page="24" max-size="10" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+      </div>
+    </div>
+  </div>
+
+</div>
