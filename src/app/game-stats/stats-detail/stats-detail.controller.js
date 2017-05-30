@@ -54,6 +54,8 @@
     }
     function getStatsDetail() {
       StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.gameName).then(function (response) {
+        console.log(vm.rankingStatsChartData.data)
+        console.log(vm.levelStatsChartData.data)
       })
 
     }

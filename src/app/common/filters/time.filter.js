@@ -6,7 +6,7 @@
     'days ago': '일',
     'a few seconds ago': '몇초',
     'a minute ago': '1분',
-    'a hour ago': '1시간',
+    'an hour ago': '1시간',
     'a day ago': '1일'
 
   };
