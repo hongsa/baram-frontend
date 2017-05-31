@@ -15,7 +15,7 @@
       for (var obj in timeNames) {
         if (input === obj) {
           return timeNames[obj] + ' 전';
-        } else if (input.includes(obj)) {
+        } else if (input.indexOf(obj) !== -1) {
           return input.replace(' ', '').replace(obj, timeNames[obj]) + ' 전'
         }
 
