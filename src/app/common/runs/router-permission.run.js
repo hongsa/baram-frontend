@@ -5,7 +5,7 @@
     $transitions.onBefore({ to: 'home'}, function(trans) {
       if ($rootScope.isLoggedIn) {
         console.log('already logged in');
-        return trans.router.stateService.target('main.gameStats');
+        return trans.router.stateService.target('main.board');
       }
     });
 

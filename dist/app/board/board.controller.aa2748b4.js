@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  function BoardController(Board, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state) {
+  function BoardController(Board, UserInfo, jwtHelper, $rootScope, APP_CONFIG, $state, $window) {
     var vm = this;
     vm.page = 1;
     vm.busy = false;
@@ -57,13 +57,17 @@
 
     function onClickPostBoard(boardType) {
       vm.postData.boardType = boardType;
-      Board.postBoard(vm.postData).then(function (response) {
-        vm.postData.content = '';
-        vm.postData.boardType = false;
-        vm.boardDataContainer = [];
-        vm.page = 1;
-        getBoardList();
-      })
+      if (vm.postData.content.length < 10) {
+        $window.alert('호걸이라면 10자 이상!')
+      } else {
+        Board.postBoard(vm.postData).then(function (response) {
+          vm.postData.content = '';
+          vm.postData.boardType = false;
+          vm.boardDataContainer = [];
+          vm.page = 1;
+          getBoardList();
+        })
+      }
     }
 
     function onClickGetReplyList(item, event) {
@@ -80,12 +84,16 @@
     }
 
     function onClickPostReply(item) {
-      item['replyData']['userId'] = $rootScope.user.userId;
-      Board.postReply(item.replyData, item.id).then(function (response) {
-        item.replyData.content = '';
-        onClickGetReplyList(item, 'first');
-        item.reply_count += 1;
-      })
+      if (item.replyData.content.length < 5) {
+        $window.alert('호걸이라면 5자 이상!')
+      } else {
+        item['replyData']['userId'] = $rootScope.user.userId;
+        Board.postReply(item.replyData, item.id).then(function (response) {
+          item.replyData.content = '';
+          onClickGetReplyList(item, 'first');
+          item.reply_count += 1;
+        })
+      }
     }
 
     function onClickTextExpand(item) {
@@ -113,7 +121,8 @@
     'jwtHelper',
     '$rootScope',
     'APP_CONFIG',
-    '$state'
+    '$state',
+    '$window'
   ];
   angular.module('baram.board.controller.BoardController', []).controller('BoardController', BoardController);
 }());

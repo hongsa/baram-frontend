@@ -4,7 +4,8 @@
     return {
       signUp: signUp,
       logIn: logIn,
-      signOut: signOut
+      signOut: signOut,
+      verifyBaram: verifyBaram
     };
     function signUp(signUpData) {
       var deferred = $q.defer();
@@ -67,6 +68,29 @@
       }
       $rootScope.$broadcast('signOut', 'success');
     }
+
+    function verifyBaram(nexonData) {
+      var deferred = $q.defer();
+      $http({
+        url: APP_CONFIG.BACKEND_ADDRESS + 'auth',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        data: nexonData
+      }).then(function (response) {
+
+        deferred.resolve({
+          code: response.status,
+          msg: response.data.msg
+        });
+      }, function (err) {
+        deferred.resolve({
+          code: err.status,
+          msg: err.data.msg
+        });
+      }, deferred.reject);
+      return deferred.promise;
+    }
+
   }
   Home.$inject = [
     '$http',

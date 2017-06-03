@@ -23,12 +23,12 @@
 
         <ul class="nav navbar-nav navbar-left" style="color: #666666;">
           <li>
-            <a ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
-              <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></a>
-          </li>
-          <li>
             <a ui-sref="main.board" ng-click="vm.onClickNavigation('main.board')">
               <span ng-style="vm.isNavigationActive('main.board')">게시판</span></a>
+          </li>
+          <li>
+            <a ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
+              <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></a>
           </li>
         </ul>
 
@@ -53,12 +53,12 @@
     <div class="navbar navbar-default row"
          style="position: fixed; bottom:-20px; width:100%; z-index: 99999;padding: 20px; ">
       <div class="col-md-3 col-sm-3 col-xs-3">
-        <div ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
-          <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></div>
-      </div>
-      <div class="col-md-3 col-sm-3 col-xs-3">
         <div ui-sref="main.board" ng-click="vm.onClickNavigation('main.board')">
           <span ng-style="vm.isNavigationActive('main.board')">게시판</span></div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
+          <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></div>
       </div>
 
       <div class="col-md-3 col-sm-3 col-xs-3">

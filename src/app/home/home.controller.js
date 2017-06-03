@@ -17,12 +17,17 @@
       'sex': '',
       'army': ''
     };
+    vm.nexonData = {
+      baramId: '',
+      baramPassword: ''
+    }
     vm.errorText1 = '';
     vm.errorText2 = '';
 
     vm.showFormType = showFormType;
     vm.onClickLogin = onClickLogin;
     vm.onClickSignUp  = onClickSignUp;
+    vm.onClickVerifyBaram = onClickVerifyBaram;
 
     function showFormType (type) {
       vm.formType = type;
@@ -37,7 +42,7 @@
             if ($rootScope.user.level === -1) {
               $state.go('main.wait');
             } else {
-              $state.go('main.gameStats');
+              $state.go('main.board');
             }
           } else {
             vm.errorText1 = response.msg;
@@ -56,13 +61,20 @@
             if ($rootScope.user.level === -1) {
               $state.go('main.wait');
             } else {
-              $state.go('main.gameStats');
+              $state.go('main.board');
             }
           } else {
             vm.errorText2 = response.msg;
           }
         })
       }
+    }
+
+    function onClickVerifyBaram() {
+      Home.verifyBaram(vm.nexonData).then(function (response) {
+
+      })
+
     }
 
   }
