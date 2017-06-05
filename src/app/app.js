@@ -27,6 +27,8 @@
     // User Info
     'baram.userInfo',
     // Wait
-    'baram.wait'
+    'baram.wait',
+    // Admin
+    'baram.admin'
   ]);
 }());

@@ -30,6 +30,10 @@
             <a ui-sref="main.gameStats" ng-click="vm.onClickNavigation('main.gameStats')">
               <span ng-style="vm.isNavigationActive('main.gameStats')">문원정보</span></a>
           </li>
+          <li ng-if="vm.level === 1;">
+            <a ui-sref="main.admin" ng-click="vm.onClickNavigation('main.admin')">
+              <span ng-style="vm.isNavigationActive('main.admin')">관리자</span></a>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right" style="color: #666666;">

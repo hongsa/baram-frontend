@@ -7,6 +7,7 @@
     vm.onClickNavigation = onClickNavigation;
     vm.isNavigationActive = isNavigationActive;
     vm.naviType = '';
+    vm.level = $rootScope.user.level;
 
     init();
     function init() {
