@@ -13,9 +13,7 @@
       'gameName': '',
       'name': '',
       'age': '',
-      'phone': '',
-      'sex': '',
-      'army': ''
+      'voiceId': ''
     };
     vm.nexonData = {
       baramId: '',

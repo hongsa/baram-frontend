@@ -7,7 +7,7 @@
       getStatsDetail: getStatsDetail
     };
 
-    function getStatsDetail(rankingDataContainer, levelDataContainer, detailStats, gameName) {
+    function getStatsDetail(rankingDataContainer, levelDataContainer, detailStats, userInfo, gameName) {
       var deferred = $q.defer();
       $http({
         url: APP_CONFIG.BACKEND_ADDRESS + 'game/all/' + gameName,
@@ -24,6 +24,9 @@
             row.level
           ]);
         });
+        if (response.data.user.voice_id) {
+          userInfo.voiceId = response.data.user.voice_id;
+        }
 
         angular.copy(response.data.stats, detailStats);
         deferred.resolve({

@@ -21,6 +21,9 @@
       id: 'level',
       color: APP_CONFIG.COLORS[2]
     };
+    vm.userInfo = {
+      voiceId: '레이드콜 아이디를 내정보에서 입력해주세요'
+    };
     vm.detailStats = {
       game_name: '',
       job: '',
@@ -34,7 +37,7 @@
       right_hand: '',
       left_hand: '',
       option1: '',
-      option2: '',
+      option2: ''
     };
 
     vm.rankingLineChartData = [
@@ -53,9 +56,10 @@
       getStatsDetail()
     }
     function getStatsDetail() {
-      StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.gameName).then(function (response) {
-        console.log(vm.rankingStatsChartData.data)
-        console.log(vm.levelStatsChartData.data)
+      StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.userInfo, vm.gameName).then(function (response) {
+        if (vm.userInfo.voiceId === '') {
+          vm.userInfo.voiceId = '레이드콜 아이디를 내정보에서 입력해주세요'
+        }
       })
 
     }

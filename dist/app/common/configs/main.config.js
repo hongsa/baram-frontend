@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   function MainConfig($urlRouterProvider, $qProvider) {
-    // $qProvider.errorOnUnhandledRejections(false);
+    $qProvider.errorOnUnhandledRejections(false);
     $urlRouterProvider.otherwise('/');
   }
   MainConfig.$inject = ['$urlRouterProvider', '$qProvider'];

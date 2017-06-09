@@ -40,9 +40,19 @@
         <div class="card-item-weapon">악세사리 : {{vm.detailStats.option2}}</div>
       </div>
     </div>
-
   </div>
 </div>
+
+<div class="text-center">
+  <form class="form-inline">
+    <div class="form-group">
+      <label>레이드콜</label>
+      <input type="text" class="form-control" ng-model="vm.userInfo.voiceId">
+    </div>
+    <!--<button class="btn btn-default" ng-click="vm.onClickProfileUpdate()">업데이트</button>-->
+  </form>
+</div>
+
 
 <div class="container row text-right">
   <button class="btn btn-default" ng-click="vm.onClickLogOut()">로그아웃</button>

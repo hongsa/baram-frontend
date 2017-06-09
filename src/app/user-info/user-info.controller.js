@@ -17,6 +17,9 @@
       id: 'level',
       color: APP_CONFIG.COLORS[2]
     };
+    vm.userInfo = {
+      voiceId: ''
+    };
     vm.detailStats = {
       game_name: '',
       job: '',
@@ -30,7 +33,7 @@
       right_hand: '',
       left_hand: '',
       option1: '',
-      option2: '',
+      option2: ''
     };
 
     vm.rankingLineChartData = [
@@ -44,22 +47,30 @@
     vm.levelLineChartConfig = new LinechartUtils.LineChartConfig(vm.levelLineChartData, null, true);
 
     vm.onClickLogOut = onClickLogOut;
+    vm.onClickProfileUpdate = onClickProfileUpdate;
 
     init();
     function init () {
       if ($rootScope.user) {
         vm.gameName = $rootScope.user.gameName;
+        vm.userId = $rootScope.user.userId;
         vm.profileImage = "http://baram.nexon.com/Profile/DrawingImgbyID.aspx?loginID=" + vm.gameName + "@연";
       }
       getStatsDetail()
     }
     function getStatsDetail() {
-      StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.gameName).then(function (response) {
+      StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.userInfo, vm.gameName).then(function (response) {
       })
     }
 
     function onClickLogOut() {
       UserInfo.logOut();
+    }
+
+    function onClickProfileUpdate() {
+      UserInfo.updateVoiceId(vm.userId).then(function (response) {
+
+      })
     }
   }
   UserInfoController.$inject = [

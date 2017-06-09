@@ -3,7 +3,8 @@
   function UserInfo($http, $q, $rootScope, APP_CONFIG, $state) {
     return {
       logOut: logOut,
-      updateToken: updateToken
+      updateToken: updateToken,
+      updateVoiceId: updateVoiceId
     };
 
     function logOut() {
@@ -40,6 +41,27 @@
         });
       }, deferred.reject);
       return deferred.promise;
+    }
+
+    function updateVoiceId(userId) {
+      var deferred = $q.defer();
+      $http({
+        url: APP_CONFIG.BACKEND_ADDRESS + 'api/users/' + userId,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        data: putData
+      }).then(function (response) {
+
+        deferred.resolve({
+          code: response.status
+        });
+      }, function (err) {
+        deferred.resolve({
+          code: err.status
+        });
+      }, deferred.reject);
+      return deferred.promise;
+
     }
 
   }
