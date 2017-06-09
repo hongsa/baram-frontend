@@ -43,10 +43,10 @@
       return deferred.promise;
     }
 
-    function updateVoiceId(userId) {
+    function updateVoiceId(putData, userId) {
       var deferred = $q.defer();
       $http({
-        url: APP_CONFIG.BACKEND_ADDRESS + 'api/users/' + userId,
+        url: APP_CONFIG.BACKEND_ADDRESS + 'users/update/' + userId,
         method: 'PUT',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         data: putData

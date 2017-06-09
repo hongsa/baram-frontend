@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  function UserInfoController(UserInfo, StatsDetailFactory, $rootScope, APP_CONFIG, LinechartUtils) {
+  function UserInfoController(UserInfo, StatsDetailFactory, $rootScope, APP_CONFIG, LinechartUtils, $window) {
     var vm = this;
     vm.currentPage = 1;
     vm.pageSize = 10;
@@ -68,8 +68,10 @@
     }
 
     function onClickProfileUpdate() {
-      UserInfo.updateVoiceId(vm.userId).then(function (response) {
-
+      UserInfo.updateVoiceId(vm.userInfo, vm.userId).then(function (response) {
+        if(response.code === 200) {
+          $window.alert('변경되었습니다.');
+        }
       })
     }
   }
@@ -78,7 +80,8 @@
     'StatsDetailFactory',
     '$rootScope',
     'APP_CONFIG',
-    'LinechartUtils'
+    'LinechartUtils',
+    '$window'
   ];
   angular.module('baram.userInfo.controller.UserInfoController', []).controller('UserInfoController', UserInfoController);
 }());
