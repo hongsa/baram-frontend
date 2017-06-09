@@ -22,7 +22,7 @@
       color: APP_CONFIG.COLORS[2]
     };
     vm.userInfo = {
-      voiceId: '레이드콜 아이디를 내정보에서 입력해주세요'
+      voiceId: ''
     };
     vm.detailStats = {
       game_name: '',
@@ -58,7 +58,7 @@
     function getStatsDetail() {
       StatsDetailFactory.getStatsDetail(vm.rankingStatsChartData.data, vm.levelStatsChartData.data, vm.detailStats, vm.userInfo, vm.gameName).then(function (response) {
         if (vm.userInfo.voiceId === '') {
-          vm.userInfo.voiceId = '레이드콜 아이디를 내정보에서 입력해주세요'
+          vm.userInfo.voiceId = '내정보에서 입력해주세요'
         }
       })
 
