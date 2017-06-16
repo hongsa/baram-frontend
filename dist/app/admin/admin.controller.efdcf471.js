@@ -29,9 +29,10 @@
       })
     }
 
-    function onClickPutUserLevel(user) {
+    function onClickPutUserLevel(user, level) {
+      vm.putData.level = level;
       Admin.putUserLevel(vm.putData, user.id).then(function (response) {
-        user.level = 0;
+        user.level = level
       })
     }
 

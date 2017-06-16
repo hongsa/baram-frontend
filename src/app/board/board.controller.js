@@ -79,7 +79,6 @@
       Board.getReplyList(item.replyContainer, item.id, item.page).then(function (response) {
         item.page += 1;
         item['replyRequest'] += 5;
-        console.log(item)
       })
     }
 

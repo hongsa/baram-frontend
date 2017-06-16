@@ -15,7 +15,7 @@
     vm.pageChanged = pageChanged;
     vm.onClickDetailModal = onClickDetailModal;
     vm.isJobFilterActive = isJobFilterActive;
-    vm.onClickSearchGamaName = onClickSearchGamaName;
+    vm.onClickSearchGameName = onClickSearchGameName;
 
     init();
     function init() {
@@ -93,7 +93,7 @@
       }
     }
 
-    function onClickSearchGamaName(e) {
+    function onClickSearchGameName(e) {
       if(e.which === 13 || e === 'click') {
         vm.searchResult = {};
         vm.searchType = 0;

@@ -30,8 +30,10 @@
             <td class="text-center">{{item.age}}</td>
             <td class="text-center">{{item.created}}시</td>
             <td class="text-center">
-              <button ng-if="item.level === -1" ng-click="vm.onClickPutUserLevel(item)" class="btn btn-default">승인</button>
-              <span ng-if="item.level !== -1">이미 승인됨</span>
+              <button ng-if="item.level === -1" ng-click="vm.onClickPutUserLevel(item, 0)" class="btn btn-default">승인</button>
+              <button ng-if="item.level === -1" ng-click="vm.onClickPutUserLevel(item, -2)" class="btn btn-default">거부</button>
+              <span ng-if="item.level === 0">이미 승인됨</span>
+              <span ng-if="item.level === -2">승인 거부</span>
             </td>
           </tr>
           </tbody>

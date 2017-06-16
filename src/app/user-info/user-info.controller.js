@@ -68,7 +68,7 @@
     }
 
     function onClickProfileUpdate() {
-      UserInfo.updateVoiceId(vm.userInfo, vm.userId).then(function (response) {
+      UserInfo.updateUserInfo(vm.userInfo, vm.userId).then(function (response) {
         if(response.code === 200) {
           $window.alert('변경되었습니다.');
         }

@@ -4,7 +4,7 @@
     return {
       logOut: logOut,
       updateToken: updateToken,
-      updateVoiceId: updateVoiceId
+      updateUserInfo: updateUserInfo
     };
 
     function logOut() {
@@ -43,7 +43,7 @@
       return deferred.promise;
     }
 
-    function updateVoiceId(putData, userId) {
+    function updateUserInfo(putData, userId) {
       var deferred = $q.defer();
       $http({
         url: APP_CONFIG.BACKEND_ADDRESS + 'users/update/' + userId,
@@ -61,7 +61,6 @@
         });
       }, deferred.reject);
       return deferred.promise;
-
     }
 
   }
