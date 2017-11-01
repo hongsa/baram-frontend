@@ -1,5 +1,20 @@
-# angular-meterial-skleton
+# 바람의나라 길드 전용 SNS 서비스
 
-- npm install
-- grunt, bower
-- style guide : https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
+0. 개발 및 운영
+- 2017.05(개발 기간)
+- 2017.05 ~ 06(운영 기간)
+
+1. 타겟 사용자
+- 바람의나라 “팔도” 길드 유저
+
+2. 해결하고자 하는 문제점
+- 게임의 하드 유저는 대부분 길드에 가입되어 있으며, 길드원들 간의 소통은 게임을 지속하는데 큰 영향을 끼친다
+- 게임 길드만을 위한 소통 채널이 없다.
+- 카톡 오픈채팅방, 밴드 등 여러개로 분산되서 사용한다.
+
+3. 솔루션
+- 게임 길드원들 간 편리하게 소통할 수 있는 전용 서비스를 제공한다.
+
+4. 서비스 설계 및 특징
+- Angular.js로 웹 프론트엔드 개발, 모바일 웹에 최적화
+- 존파파 스타일가이드를 기준으로 개발(https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
