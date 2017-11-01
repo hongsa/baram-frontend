@@ -25,7 +25,6 @@
     function getWaitList() {
       vm.dataContainer.splice(0);
       Admin.getWaitList(vm.dataContainer, vm.level).then(function (response) {
-        console.log(vm.dataContainer)
       })
     }
 
